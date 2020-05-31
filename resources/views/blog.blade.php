@@ -40,7 +40,7 @@
                          {{session()->get('error_message')}}
                     </div>
          @endif
-      <a href="/blog/create" class="btn btn-primary btn-lg" role="button">Add new <i class="fas fa-file"></i></a>
+      <a href="/blog/create" class="btn btn-primary btn-lg mb-3" role="button">Add new <i class="fas fa-file"></i></a>
       @foreach($articles as $article)
       <tr>
         <th scope="row">{{$article->id}}</th>
