@@ -21,11 +21,23 @@
     <tbody>
       <h3>Articles for reading</h3>
             <!--  alert message -->
-           @if(session()->has('message'))
+           @if(session()->has('add_message'))
                     <div class="alert alert-success">
                       <button type="button" class="close" data-dismiss="alert">&times;</button>
                          <strong>Notification: </strong>
-                         {{session()->get('message')}}
+                         {{session()->get('add_message')}}
+                    </div>
+          @elseif(session()->has('update_message'))
+                    <div class="alert alert-info">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                         <strong>Notification: </strong>
+                         {{session()->get('update_message')}}
+                    </div>
+          @elseif(session()->has('error_message'))
+                    <div class="alert alert-danger">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                         <strong>Notification: </strong>
+                         {{session()->get('error_message')}}
                     </div>
          @endif
       <a href="/blog/create" class="btn btn-primary btn-lg" role="button">Add new <i class="fas fa-file"></i></a>
@@ -39,7 +51,11 @@
         <th scope="row">
           <a href ="/blog/{{$article->id}}"><i class="fas fa-eye"></i></a> |
           <a href ="/blog/{{$article->id}}/edit"><i class="fas fa-edit"></i></a> |
-          <a href ="/blog/{{$article->id}}/delete"><i class="fas fa-trash"></i></a>
+          <form action="blog/{{$article->id}}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+              <button class="btn btn-link" name="submit"><i class="fas fa-trash"></i></button>
+          </form>
         </th>
       </tr>
       @endforeach

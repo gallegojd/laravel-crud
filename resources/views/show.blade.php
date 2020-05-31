@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container-fluid">
-    <h1>Reading Article <span class="badge badge-secondary"></span></h1>
+    <h1>Viewing Article <span class="badge badge-secondary"></span></h1>
       <!-- <div class="card mb-3">
         <img class="card-img-top" src="..." alt="Card image cap">
           <div class="card-body">

@@ -26,7 +26,7 @@ class ArticlesController extends Controller
     $article->content = $request->input('content');
     $article->save();
     
-    session()->flash('message', 'Records inserted successfully!');
+    session()->flash('add_message', 'Records inserted successfully!');
     return redirect('blog');
   }
 
@@ -55,15 +55,15 @@ class ArticlesController extends Controller
      $article->updated_at = $request->updated_at;
      $article->save();
 
-    session()->flash('message', 'Records updated succesfully!');
+    session()->flash('update_message', 'Records updated succesfully!');
     return redirect('blog');
-     
-
   }
 
   //pang destroy sa session
   public function destroy($id){
-
+    Article::destroy($id);
+    return redirect('blog')
+        ->with('error_message','Records Deleted!');
   }
 
 
