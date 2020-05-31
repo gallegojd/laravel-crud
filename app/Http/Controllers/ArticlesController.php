@@ -55,7 +55,7 @@ class ArticlesController extends Controller
      $article->updated_at = $request->updated_at;
      $article->save();
 
-    session()->flash('message', 'Records updated!');
+    session()->flash('message', 'Records updated succesfully!');
     return redirect('blog');
      
 
