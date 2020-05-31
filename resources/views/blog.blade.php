@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <h3>Articles for reading</h3>
+      <h3>BASIC CRUD LARAVEL</h3>
             <!--  alert message -->
            @if(session()->has('add_message'))
                     <div class="alert alert-success">
