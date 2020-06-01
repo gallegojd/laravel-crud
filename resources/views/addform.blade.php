@@ -10,6 +10,20 @@
  <form action="/blog" method="POST">
   @csrf
   <h1>Article <span class="badge badge-secondary">New</span></h1>
+
+  @if($errors->any())
+      <div class="alert alert-danger">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <ul class="nav flex-column">
+            <strong>Notification: </strong>
+              @foreach($errors->all() as $error)
+                <li>
+                  {{$error}}
+                </li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationTooltip01">Title</label>

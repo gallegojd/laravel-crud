@@ -21,11 +21,21 @@ class ArticlesController extends Controller
     // echo $request->input('title');
     //  echo $request->input('content');
     //inserting into database
+
+     $request->validate([
+      "title"=> "required|min:5|max:20|unique:articles", 
+      "content" => "required|min:5|max:200"
+    ]);
+
     $article = new Article;
     $article->title = $request->input('title');
     $article->content = $request->input('content');
     $article->save();
-    
+
+    //another way of adding data w/ validation
+    //min and max characters
+    //with unique
+   
     session()->flash('add_message', 'Records inserted successfully!');
     return redirect('blog');
   }

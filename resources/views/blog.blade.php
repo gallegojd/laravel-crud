@@ -21,6 +21,7 @@
     <tbody>
       <h3>BASIC CRUD LARAVEL</h3>
             <!--  alert message -->
+            <!-- with if-else condition -->
            @if(session()->has('add_message'))
                     <div class="alert alert-success">
                       <button type="button" class="close" data-dismiss="alert">&times;</button>
