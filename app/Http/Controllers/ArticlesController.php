@@ -72,10 +72,7 @@ class ArticlesController extends Controller
   //pang destroy sa session
   public function destroy($id){
     Article::destroy($id);
-    return redirect('blog')
-        ->with('error_message','Records Deleted!');
+    session()->flash('error_message','Records Deleted!');
+    return redirect('blog');
   }
-
-
-
 }
