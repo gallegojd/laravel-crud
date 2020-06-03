@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use Validator;
 class ArticlesController extends Controller
 {
     //creating public functions on index
@@ -22,10 +23,18 @@ class ArticlesController extends Controller
     //  echo $request->input('content');
     //inserting into database
 
-     $request->validate([
+    //manual validator 
+    $validator = Validator::make($request->all(), [
       "title"=> "required|min:5|max:20|unique:articles", 
       "content" => "required|min:5|max:200"
-    ]);
+    ]);  
+
+    //test if mag fail ang validator
+    if($validator->fails()){
+      return redirect("blog/create")->withErrors($validator)->
+      withInput();
+    }
+
 
     $article = new Article;
     $article->title = $request->input('title');

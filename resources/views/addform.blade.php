@@ -27,14 +27,14 @@
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationTooltip01">Title</label>
-      <input type="text" class="form-control" id="validationTooltip01" name="title" placeholder="Article Title" required>
+      <input type="text" class="form-control" id="validationTooltip01" name="title" placeholder="Article Title" value="{{old("title")}}" required>
       <div class="valid-tooltip">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationTooltip02">Content</label>
-      <input type="text" class="form-control" id="validationTooltip02" name="content" placeholder="Article Content" required>
+      <input type="text" class="form-control" id="validationTooltip02" name="content" placeholder="Article Content"  value="{{old("content")}}"required>
       <div class="valid-tooltip">
         Looks good!
       </div>
